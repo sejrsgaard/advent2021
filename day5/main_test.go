@@ -13,7 +13,7 @@ var example = `0,9 -> 5,9
 0,0 -> 8,8
 5,5 -> 8,2`
 
-func Test(t *testing.T) {
+func TestPart1(t *testing.T) {
 	tests := []struct {
 		input  string
 		expect int
@@ -26,6 +26,25 @@ func Test(t *testing.T) {
 	for _, tt := range tests {
 		t.Run("test", func(t *testing.T) {
 			if got := solve_part1(tt.input); got != tt.expect {
+				t.Errorf("Expected %d got %d", tt.expect, got)
+			}
+		})
+	}
+}
+
+func TestPart2(t *testing.T) {
+	tests := []struct {
+		input  string
+		expect int
+	}{
+		{
+			input:  example,
+			expect: 12,
+		},
+	}
+	for _, tt := range tests {
+		t.Run("test", func(t *testing.T) {
+			if got := solve_part2(tt.input); got != tt.expect {
 				t.Errorf("Expected %d got %d", tt.expect, got)
 			}
 		})
