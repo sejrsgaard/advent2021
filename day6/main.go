@@ -25,14 +25,14 @@ func main() {
 }
 
 func solve(input string, days int) int64 {
-	fish := make(map[int]int)
+	fish := make(map[int]int64)
 	for _, s := range strings.Split(input, ",") {
 		fish[utils.Cast(s)]++
 	}
 
 	age := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
 	for day := 0; day < days; day++ {
-		new_fish := make(map[int]int)
+		new_fish := make(map[int]int64)
 		for k := range age {
 			if k == 0 {
 				new_fish[8] = fish[k]
@@ -48,7 +48,7 @@ func solve(input string, days int) int64 {
 
 	sum := int64(0)
 	for _, v := range fish {
-		sum += int64(v)
+		sum += v
 	}
 
 	return sum
